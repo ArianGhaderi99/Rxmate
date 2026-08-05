@@ -43,7 +43,7 @@
 
 ```bash
 # کلون کردن پروژه
-git clone https://github.com/YOUR_USERNAME/rxmate.git
+git clone https://github.com/ArianGHaderi99/rxmate.git
 cd rxmate
 
 # ساخت و فعال‌سازی محیط مجازی
@@ -113,7 +113,7 @@ The project focuses on a modern, fully responsive design with a UX inspired by a
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/rxmate.git
+git clone https://github.com/ArianGhaderi/rxmate.git
 cd rxmate
 
 # Create and activate a virtual environment
