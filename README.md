@@ -8,7 +8,7 @@
 
 <!-- 📸 لینک اسکرین‌شات سایت را اینجا جایگزین کن -->
 <!-- 📸 Replace the placeholder below with your site's screenshot link -->
-![RxMate Screenshot](YOUR_SCREENSHOT_URL_HERE)
+![RxMate Screenshot](https://github.com/ArianGhaderi99/Rxmate/blob/main/ScreenShot.png)
 
 ---
 
