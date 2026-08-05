@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RxMate | دستیار هوشمند نسخه‌نویسی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="shortcut icon" href="{% static "base/favicon.png" %}" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static "base/css/style.css" %}">
+</head>
+<body>
+
+  <div class="paper-texture" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">Rx</span>
+      <div class="brand-text">
+        <span class="brand-name">RxMate</span>
+        <span class="brand-sub">دستیار هوشمند نسخه و آزمایش</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="pad">
+
+    <section class="panel panel-input" aria-labelledby="input-title">
+      <div class="rx-watermark" aria-hidden="true">Rx</div>
+
+      <div class="panel-head">
+        <span class="panel-index">۰۱</span>
+        <div>
+          <h2 id="input-title">ثبت نسخه یا شرح آزمایش</h2>
+          <p class="panel-hint">متن نسخه، علائم یا درخواست آزمایش را دقیق و کامل بنویسید</p>
+        </div>
+      </div>
+
+      <label class="field-label" for="rx-meta">شناسه یادداشت (اختیاری)</label>
+      <input type="text" id="rx-meta" class="meta-input" placeholder="مثلاً: بیمار ۱ - ویزیت اول">
+
+      <label class="field-label" for="rx-input">متن نسخه / آزمایش</label>
+      <textarea
+        id="rx-input"
+        class="rx-textarea"
+        placeholder="مثال:&#10;بیمار خانم، ۳۴ ساله&#10;شکایت: سردرد مزمن و تب خفیف از سه روز پیش&#10;درخواست: نسخه دارویی مناسب و آزمایش‌های تکمیلی"
+        rows="10"></textarea>
+
+      <div class="field-footer">
+        <span class="char-count"><span id="char-count">۰</span> کاراکتر</span>
+        <button type="button" class="btn-ghost" id="clear-btn">پاک کردن</button>
+      </div>
+
+      <label class="field-label" for="rx-image">تصویر نسخهٔ اسکن‌شده (اختیاری)</label>
+      <div class="upload-box" id="upload-box">
+        <input type="file" id="rx-image" accept="image/*" hidden>
+        <div class="upload-empty" id="upload-empty">
+          <span class="upload-icon" aria-hidden="true">📎</span>
+          <span class="upload-text">برای بارگذاری تصویر کلیک کنید یا فایل را بکشید و رها کنید</span>
+          <span class="upload-hint">JPG، PNG یا PDF</span>
+        </div>
+        <div class="upload-preview" id="upload-preview" hidden>
+          <img id="upload-preview-img" alt="پیش‌نمایش نسخهٔ اسکن‌شده">
+          <button type="button" class="upload-remove" id="upload-remove" aria-label="حذف تصویر">✕</button>
+        </div>
+      </div>
+
+      <div class="perforation" aria-hidden="true"></div>
+
+      <button type="button" class="btn-primary" id="submit-btn">
+        <span class="btn-label">بررسی با مدل</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <span class="divider-dot"></span>
+      <span class="divider-dot"></span>
+      <span class="divider-dot"></span>
+    </div>
+
+    <section class="panel panel-output" aria-labelledby="output-title">
+      <div class="panel-head">
+        <span class="panel-index">۰۲</span>
+        <div>
+          <h2 id="output-title">پاسخ مدل</h2>
+          <p class="panel-hint">نتیجه تحلیل و پیشنهاد مدل اینجا نمایش داده می‌شود</p>
+        </div>
+      </div>
+
+      <div class="report" id="report">
+        <div class="report-empty" id="report-empty">
+          <div class="empty-icon" aria-hidden="true">Rx</div>
+          <p>هنوز نسخه‌ای ارسال نشده است</p>
+          <span>متن نسخه را در سمت راست بنویسید و روی «بررسی با مدل» بزنید</span>
+        </div>
+        <div class="report-content" id="report-content" hidden>
+          <div class="report-line" id="report-time"></div>
+          <pre class="report-body" id="report-body"></pre>
+        </div>
+      </div>
+
+      <div class="report-actions" id="report-actions" hidden>
+        <button type="button" class="btn-ghost" id="copy-btn">کپی پاسخ</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footnote">
+    <div class="disclaimer">
+      <span class="disclaimer-icon" aria-hidden="true">!</span>
+      <p>
+        <strong>این پاسخ توسط هوش مصنوعی تولید شده و صرفاً جهت اطلاع‌رسانی است.</strong>
+        هوش مصنوعی می‌تواند اشتباه کند و جایگزین ویزیت، تشخیص و نظر پزشک متخصص نیست.
+        پیش از هرگونه تصمیم دارویی یا درمانی، حتماً با پزشک خود مشورت کنید.
+      </p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="{% static "base/js/script.js" %}"></script>
+</body>
+</html>
